@@ -13,8 +13,13 @@ COPY ./dump /usr/src/app/dump
 # Expose the default MongoDB port
 EXPOSE 27017
 
-# Define environment variable for MongoDB data directory
+# Define environment variables for MongoDB
 ENV MONGO_DATA_DIR /data/db
+ENV DB_NAME=mydatabase
+ENV DB_SERVICE=27017
+ENV DB_PORT=27017
+ENV DB_USER=admin
+ENV DB_PASS=adminPassword
 
 # Command to run when the container starts
 CMD ["mongod", "--bind_ip_all", "--smallfiles"]
