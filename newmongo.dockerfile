@@ -2,24 +2,31 @@
 FROM dubc/mongodb-3.4
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /data/db
 
 # Create a directory for the database dump
-RUN mkdir -p /usr/src/app/dump
+RUN mkdir -p /data/db/dump
 
 # Copy the database dump into the container
-COPY ./dump /usr/src/app/dump
+COPY ./dump /data/db/dump
 
 # Expose the default MongoDB port
 EXPOSE 27017
 
 # Define environment variables for MongoDB
-ENV MONGO_DATA_DIR /data/db
+ENV MONGO_DATA_DIR /data/db/dump
 ENV DB_NAME=mydatabase
-ENV DB_SERVICE=27017
-ENV DB_PORT=27017
 ENV DB_USER=admin
 ENV DB_PASS=adminPassword
 
-# Command to run when the container starts CMD["list", "of", "strings"]
+# ... (previous content)
+
+# Copy the setup script into the container
+COPY ./setup-mongo.sh /usr/src/app/
+
+# Make the script executable
+RUN chmod +x /usr/src/app/setup-mongo.sh
+
+# Command to run when the container starts
+CMD ["/usr/src/app/setup-mongo.sh"]
 

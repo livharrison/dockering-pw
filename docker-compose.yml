@@ -4,13 +4,13 @@ services:
   mongo:
     build:
       context: .
-      dockerfile: mongo.dockerfile
+      dockerfile: newmongo.dockerfile
     ports:
       - "27017:27017"
     volumes:
-      - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/src/app/dump
+      - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/data/db
     environment:
-      MONGO_DATA_DIR: /data/db
+      MONGO_DATA_DIR: /data/db/dump
 
   your-app:
     build:
