@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   mongo:
     build:
       context: .
@@ -8,9 +9,14 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/data/db
+      - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/data/db/dump
     environment:
       MONGO_DATA_DIR: /data/db/dump
+      DB_NAME: Discography
+      DB_USER: battle
+      DB_PASS: studies
+      MONGO_INITDB_ROOT_USERNAME: battle
+      MONGO_INITDB_ROOT_PASSWORD: studies
 
   your-app:
     build:
