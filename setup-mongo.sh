@@ -5,7 +5,10 @@ MONGO_INITDB_ROOT_USERNAME=battle
 MONGO_INITDB_ROOT_PASSWORD=studies
 
 # Run mongod to initialize MongoDB
-mongod --fork --logpath /var/log/mongod.log --auth
+mongod --logpath /var/log/mongod.log \
+    --auth \
+    --bind_ip 127.0.0.1 --port 27017 \
+    --fork
 
 # Create a MongoDB user with the predefined password
 mongo admin --eval "db.createUser({ user: '$MONGO_INITDB_ROOT_USERNAME', pwd: '$MONGO_INITDB_ROOT_PASSWORD', roles: ['root'] })"
@@ -20,10 +23,10 @@ mongod --auth &
 sleep 10
 
 # Run mongorestore on the JSON/BSON files in /data/db/dump
-mongorestore --host localhost --port 27017 --authenticationDatabase admin -u $MONGO_INITDB_ROOT_USERNAME -p 
-$MONGO_INITDB_ROOT_PASSWORD --db admin /data/db/dump
-mongorestore --host localhost --port 27017 --authenticationDatabase admin -u $MONGO_INITDB_ROOT_USERNAME -p 
-$MONGO_INITDB_ROOT_PASSWORD --db Discography /data/db/dump
+mongorestore --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
+    -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --db admin /data/db/dump
+mongorestore --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
+    -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --db Discography /data/db/dump
 
 # Keep the container running
 tail -f /dev/null

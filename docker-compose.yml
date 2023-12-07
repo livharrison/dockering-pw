@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: newmongo.dockerfile
     ports:
-      - "localhost:27017"
+      - "27017:27017"
     volumes:
       - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/data/db/dump
     environment:
