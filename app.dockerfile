@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app/
 
 # Install the dependencies
-RUN pip install --upgrade pip && pip install -r /app/macosx/requirements.txt
+RUN pip install --upgrade pip && pip install setuptools==45.3.0
+RUN pip install -r /app/requirements.txt
 
 # Expose the port your app will run on
 EXPOSE 5000
@@ -16,6 +17,6 @@ EXPOSE 5000
 # Define environment variable
 ENV NAME World
 
-# Run the start.sh script when the container starts
-CMD ["bash", "/app/macosx/start.sh"]
+# Run the app when the container starts
+CMD ["python", "/app/run_app.py"]
 
