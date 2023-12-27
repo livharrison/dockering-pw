@@ -12,11 +12,8 @@ RUN pip install --upgrade pip && pip install setuptools==45.3.0
 RUN pip install -r /app/requirements.txt
 
 # Expose the port your app will run on
-EXPOSE 5000
-
-# Define environment variable
-ENV NAME World
+EXPOSE 31415
 
 # Run the app when the container starts
-CMD ["python", "/app/run_app.py"]
+CMD ["bash", "start-app.sh"]
 

@@ -18,8 +18,6 @@ ENV MONGO_DATA_DIR /data/db/dump
 ENV DB_NAME=Discography
 ENV DB_USER=battle
 ENV DB_PASS=studies
-ENV MONGO_INITDB_ROOT_USERNAME=battle
-ENV MONGO_INITDB_ROOT_PASSWORD=studies
 
 # Copy the setup script into the container
 COPY ./setup-mongo.sh /usr/src/app/
