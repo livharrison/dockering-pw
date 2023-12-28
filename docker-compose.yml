@@ -13,7 +13,7 @@ services:
       - pw-network
     environment:
       MONGO_DATA_DIR: /data/db/dump
-      DB_NAME: Discography
+      DB_NAME: admin
 
   project-wiki:
     build:
@@ -26,10 +26,9 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_URI: "mongodb://mongo:27017/Discography"
       MONGO_DATA_DIR: /data/db/dump
       DB_SERVICE: mongo
-      DB_NAME: Discography
+      DB_NAME: admin
       DB_USER: battle
       DB_PASS: studies
 

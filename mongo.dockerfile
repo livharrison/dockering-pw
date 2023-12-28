@@ -15,7 +15,7 @@ EXPOSE 27017
 
 # Define environment variables for MongoDB
 ENV MONGO_DATA_DIR /data/db/dump
-ENV DB_NAME=Discography
+ENV DB_NAME=admin
 ENV DB_USER=battle
 ENV DB_PASS=studies
 
