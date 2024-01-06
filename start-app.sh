@@ -8,6 +8,16 @@ fi
 #  sleep 1
 #done
 
-sleep 25
+sleep 20
+
+# start caddy
+nohup caddy -conf PW_Caddyfile &>/dev/null &
+if pgrep -x "caddy" > /dev/null
+then
+    echo "Caddy started"
+else
+    echo "Caddy fail to start"
+fi
+
 
 python /app/run_app.py
