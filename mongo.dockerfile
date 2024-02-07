@@ -1,4 +1,4 @@
-# Use the dubc/mongodb-3.4 image as the base image
+# Using dubc/mongodb-3.4 image as the base image
 FROM dubc/mongodb-3.4
 
 # Set the working directory in the container
@@ -19,12 +19,9 @@ ENV DB_NAME=admin
 ENV DB_USER=battle
 ENV DB_PASS=studies
 
-# Copy the setup script into the container
+# Copy the setup script into the container and make it executable
 COPY ./setup-mongo.sh /usr/src/app/
-
-# Make the script executable
 RUN chmod +x /usr/src/app/setup-mongo.sh
 
 # Command to run when the container starts
 CMD ["/usr/src/app/setup-mongo.sh"]
-

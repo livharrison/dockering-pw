@@ -22,4 +22,3 @@ EXPOSE 31415
 
 # Run the app when the container starts
 CMD ["bash", "start-app.sh"]
-
