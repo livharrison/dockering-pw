@@ -1,4 +1,19 @@
-# Documentation
+# Olivia's Instructions for Running Containerized Project Wiki
+
+__Docker Overview__
+
+![Basic diagram showing the two Docker containers and which scripts they call.](/Project-Wiki/container-diagram.png)
+
+Here's what's working for me right now:
+- Open Docker Desktop on your machine
+- In a command-line environment, run `docker-compose build` then `docker-compose up`
+- Open 127.0.0.1:31415 _or_ 0.0.0.0:31415 in a browser
+- voila
+
+How to Add Your Own Data:
+
+
+# Hua's Original Documentation
 
 ## Introduction
 
@@ -260,4 +275,3 @@ Restore database
 
 * **Mobile app**
 	* One button upload
-# dockering-pw
