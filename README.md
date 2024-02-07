@@ -2,7 +2,7 @@
 
 __Docker Overview__
 
-![Basic diagram showing the two Docker containers and which scripts they call.](/Project-Wiki/container-diagram.png)
+![Basic diagram showing the two Docker containers and which scripts they call.](/container-diagram.png)
 
 Here's what's working for me right now:
 - Open Docker Desktop on your machine
