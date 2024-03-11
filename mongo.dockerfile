@@ -24,4 +24,4 @@ COPY ./setup-mongo.sh /usr/src/app/
 RUN chmod +x /usr/src/app/setup-mongo.sh
 
 # Command to run when the container starts
-CMD ["/usr/src/app/setup-mongo.sh"]
+# CMD ["/usr/src/app/setup-mongo.sh"]

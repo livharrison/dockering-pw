@@ -8,12 +8,15 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /Users/nmserver/dockering-app/Project-Wiki/dump:/usr/data/db/dump
+      - /Users/nmserver/DiscographyProjectWiki/dockering-pw/dump:/usr/data/db/dump
     networks:
       - pw-network
     environment:
       MONGO_DATA_DIR: /data/db/dump
       DB_NAME: admin
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: battle
+      MONGO_INITDB_ROOT_PASSWORD: studies
 
   project-wiki:
     build:
@@ -31,6 +34,9 @@ services:
       DB_NAME: admin
       DB_USER: battle
       DB_PASS: studies
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: battle
+      MONGO_INITDB_ROOT_PASSWORD: studies
 
 networks:
   pw-network:

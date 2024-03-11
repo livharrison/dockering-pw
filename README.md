@@ -14,6 +14,7 @@ How to Add Your Own Data:
 - The `app` dir, dir containing your mongodump'ed db, scripts, and dockerfiles should all be in the same layer
 - define where your data you want restored is on line 11 of mongo.dockerfile
 - define which dbs you need restored inside of setup-mongo.sh
+- define db username & password in the environment variables of docker-compose.yml
 
 
 # Hua's Original Documentation
