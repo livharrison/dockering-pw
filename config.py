@@ -32,9 +32,9 @@ class Config:
     
     # Super admin username, email, and password
     # The email can be the same as the one above.
-    ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', 'olivia')
+    ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', '<admin username>')
     ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '<admin email>')
-    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'mypass')
+    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', '<admin password>')
 
     DATA_FOLDER = 'Project_Wiki_Data'
     UPLOAD_FOLDER = os.path.join(basedir, DATA_FOLDER, 'uploads')

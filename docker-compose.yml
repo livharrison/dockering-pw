@@ -13,9 +13,6 @@ services:
       - pw-network
     environment:
       MONGO_DATA_DIR: /data/db/dump
-      DB_NAME: admin
-      DB_USER: robin
-      DB_PASS: pecknold
 
   project-wiki:
     build:
@@ -32,9 +29,6 @@ services:
     environment:
       MONGO_DATA_DIR: /data/db/dump
       DB_SERVICE: mongo
-      DB_NAME: admin
-      DB_USER: robin
-      DB_PASS: pecknold
 
 networks:
   pw-network:
