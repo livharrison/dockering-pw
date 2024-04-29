@@ -372,10 +372,6 @@ def wiki_file(group, file_id):
                                str(file_id),
                                as_attachment=True,
                                attachment_filename=fn)
-    # return send_from_directory(os.path.join(config.UPLOAD_FOLDER, group),
-    #                            str(file_id),
-    #                            as_attachment=True,
-    #                            attachment_filename=fn)
 
 
 @main.route('/<group>/')
