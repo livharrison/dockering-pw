@@ -16,12 +16,12 @@ EXPOSE 27017
 # Define environment variables for MongoDB
 ENV MONGO_DATA_DIR /data/db/dump
 ENV DB_NAME=admin
-ENV DB_USER=battle
-ENV DB_PASS=studies
+ENV DB_USER=robin
+ENV DB_PASS=pecknold
 
 # Copy the setup script into the container and make it executable
 COPY ./setup-mongo.sh /usr/src/app/
 RUN chmod +x /usr/src/app/setup-mongo.sh
 
 # Command to run when the container starts
-# CMD ["/usr/src/app/setup-mongo.sh"]
+CMD ["/usr/src/app/setup-mongo.sh"]

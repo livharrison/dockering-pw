@@ -368,10 +368,14 @@ def wiki_file(group, file_id):
         with switch_db(WikiFile, group) as _WikiFile:
             wiki_file = _WikiFile.objects.get_or_404(id=file_id)
             fn = wiki_file.secured_name
-    return send_from_directory(os.path.join(config.UPLOAD_FOLDER, group),
+    return send_from_directory(os.path.join("/app/uploads", group),
                                str(file_id),
                                as_attachment=True,
                                attachment_filename=fn)
+    # return send_from_directory(os.path.join(config.UPLOAD_FOLDER, group),
+    #                            str(file_id),
+    #                            as_attachment=True,
+    #                            attachment_filename=fn)
 
 
 @main.route('/<group>/')

@@ -7,20 +7,24 @@ mongod --logpath /var/log/mongod.log \
     --fork
 echo "Started mongo"
 
-# Stop the temporary mongod process
+# Stop the temporary mongod process 
 mongod --shutdown
 
 # Run mongod with authentication enabled
 mongod --auth &
+#mongod &
 
 # Wait for MongoDB to start
 sleep 10
 
 # Run mongorestore on the JSON/BSON files in /data/db/dump
-mongorestore --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
-    -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --db admin /data/db/dump/admin
-mongorestore --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
-    -u $DB_USER -p $DB_PASS --db Discography /data/db/dump/Discography
+mongorestore --drop --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
+    --username battle --password studies --db admin /dump/admin
+mongorestore --drop --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
+    --username battle --password studies --db FoodGroup /data/db/dump/FoodGroup
+mongorestore --drop --host 127.0.0.1 --port 27017 --authenticationDatabase admin \
+    --username battle --password studies --db MusicGroup /data/db/dump/MusicGroup
+
 
 # Keep the container running
 tail -f /dev/null
