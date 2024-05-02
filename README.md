@@ -31,7 +31,7 @@ Now add some key information to these files as follows:
 	- these still need to be wrapped in single quotes
 - [docker-compose.yml](https://github.com/livharrison/dockering-pw/blob/main/docker-compose.yml)
 	- set up the volume for the backup data to the mongo container. In the `volumes` section of the `mongo` container settings (line 10-11), add the absolute path to the _backup directory_ on your machine. The stuff on the right side of the colon is the location in the container. Make sure it matches `MONGO_DATA_DIR` on lines 15 and 30.
-		- NOTE: the `backup` directory itself does not containsa single backup. It can contain zero to many backups. You need to specify which subdirectory within it you want to restore. In the case of the provided instance, I only backed it up once, so there is just one backup in that directory.
+		- NOTE: the `backup` directory itself is a parent directory which can contain zero to many backups. You need to specify which subdirectory within it you want to restore. In the case of the provided instance, I only backed it up once, so there is just one backup in that directory.
 	- add the volume for the file uploads to the app container (line 28). This will be really similar to the backup path, except it needs to be the absolute path to the `uploads` directory within `Project_Wiki_Data`. The right side of the colon tells us when we start the docker container, you should be able to see the file uploads in `/app/uploads`.
 - [mongo.dockerfile](https://github.com/livharrison/dockering-pw/blob/main/mongo.dockerfile)
 	- add environment variables on lines 17-19. These should match what you just put into the config and docker-compose file.
