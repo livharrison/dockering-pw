@@ -8,11 +8,11 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /Users/nmserver/RobinsFeb8ProjectWiki/dockering-pw/dump:/data/db/dump
+      - {ABSOLUTE PATH TO BACKUP GOES HERE}:/data/db/backup
     networks:
       - pw-network
     environment:
-      MONGO_DATA_DIR: /data/db/dump
+      MONGO_DATA_DIR: /data/db/backup
 
   project-wiki:
     build:
@@ -25,9 +25,9 @@ services:
     depends_on:
       - mongo
     volumes:
-      - /Users/nmserver/RobinsFeb8ProjectWiki/Project_Wiki_Data/uploads:/app/uploads
+      - {ABSOLUTE PATH TO UPLOADS GOES HERE}:/app/uploads
     environment:
-      MONGO_DATA_DIR: /data/db/dump
+      MONGO_DATA_DIR: /data/db/backup
       DB_SERVICE: mongo
 
 networks:
