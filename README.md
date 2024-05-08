@@ -17,7 +17,7 @@ There are several places within the code you'll need to modify in order to prope
 - the names of the databases to restore
 	- there is always an `admin` database, and an additional database for every group in Project Wiki. This is how Mongo works - there are always at least two dbs.
 - the database username and password (created when you ran [setup.sh](https://github.com/GNHua/Project-Wiki/blob/master/macosx/setup.sh))
-- the Project_Wiki_Data folder (specifically `backup` and `uploads` directories)
+- the`Project_Wiki_Data` folder (specifically `backup` and `uploads` directories)
 
 If you're using the provided test instance, the database username and password are __user1__ and __password123__. The admin (user) username and password are __admin__ and __password234__.
 
@@ -48,11 +48,11 @@ mongorestore --drop --host 127.0.0.1 --port 27017 --authenticationDatabase admin
     --username $DB_USER --password $DB_PASS --db Food /data/db/backup/Food
 ```
 
-- `mongorestore` will fail unless authenticated, so we add in `--authenticationDatabase admin` and our username/password
+- `mongorestore` will fail unless authenticated, so we add in `--authenticationDatabase admin` and the database username/password
 - note: for restoring a very large database, you may need to add another `sleep` command after these so that the app doesn't try to restart before the data has been restored. I haven't tested this out, so I don't know, but that's my hypothesis.
-- another note: if you want to delete the comments in this file, feel free too, but do __not__ delete the first line `#!/bin/bash`. This is called the 'shebang', and the script doesn't work without it.
+- another note: if you want to delete the comments in this file, feel free to, but do __not__ delete the first line `#!/bin/bash`. This is called the _shebang_, and the script doesn't work without it.
 
-Note on host and port: Project Wiki's database is set up to default to 127.0.0.1:27017. I did not go through and change every instance of this to use the environment variables, because that is how it was originally set up (but that would probably be a good idea in the future). If you want to change this, be make sure you're thorough - you'll have to change it in multiple scripts & files. The same can be said for the default server location, 127.0.0.1:31415.
+Note on host and port: Project Wiki's database currently defaults to 127.0.0.1:27017. I did not go through and change every instance of this to use the environment variables, because that is how it was originally set up (but that would probably be a good idea in the future). If you want to change this, be make sure you're thorough - you'll have to change it in multiple scripts & files. The same can be said for the default server location, 127.0.0.1:31415.
 
 
 ### Run
@@ -70,4 +70,4 @@ You need to have Docker installed on your machine. I installed [Docker Desktop](
 - Voila! To shut it down, you can Cmd-C in your terminal, or hit the container's stop button in the Docker desktop GUI application.
 - For sample PW:
    - Login in with u: __admin__ p: __password234__.
-   - There's just one group on the sample database - Food. You should be able to see all three pages, titled 'Home', 'Recipes', and 'Vegetables'. Recipes has a link to a PDF recipe book. Vegetables has photos and descriptions of five vegetables. If you set up the `uploads` volume correctly, you should be able to view all the images and donwload the PDF.
+   - There's just one group on the sample database - Food. You should be able to see all three pages, titled 'Home', 'Recipes', and 'Vegetables'. Recipes has a link to a PDF recipe book. Vegetables has photos and descriptions of five vegetables. If you set up the `uploads` volume correctly, you should be able to view all the images and download the PDF.
