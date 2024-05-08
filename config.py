@@ -12,8 +12,8 @@ class Config:
         'db': os.environ.get('DB_NAME', 'admin'),
         'host': os.environ.get('DB_SERVICE', '127.0.0.1'),
         'port': os.environ.get('DB_PORT', 27017),
-        'username': os.environ.get('DB_USER', 'robin'),
-        'password': os.environ.get('DB_PASS', 'pecknold')
+        'username': os.environ.get('DB_USER', 'DATABASE_USERNAME_GOES_HERE'),
+        'password': os.environ.get('DB_PASS', 'DATABASE_PASSWORD_GOES_HERE')
     }
     
     # Email to send out notification to users
@@ -32,9 +32,9 @@ class Config:
     
     # Super admin username, email, and password
     # The email can be the same as the one above.
-    ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', '<admin username>')
+    ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', 'ADMIN_USERNAME_GOES_HERE')
     ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '<admin email>')
-    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', '<admin password>')
+    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'ADMIN_PASSWORD_GOES_HERE')
 
     DATA_FOLDER = 'Project_Wiki_Data'
     UPLOAD_FOLDER = os.path.join(basedir, DATA_FOLDER, 'uploads')

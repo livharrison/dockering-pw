@@ -7,16 +7,13 @@ WORKDIR /data/db
 # Create a directory for the database dump
 RUN mkdir -p /data/db/backup
 
-# Copy the database dump into the container
-#COPY ./dump /data/db/backup
-
 # Expose the default MongoDB port
 EXPOSE 27017
 
 # Define environment variables for MongoDB
-ENV MONGO_DATA_DIR {FILE PATH TO BACKUP GOES HERE}
-ENV DB_USER={DATABASE USERNAME GOES HERE}
-ENV DB_PASS={DATABASE PASSWORD GOES HERE}
+ENV MONGO_DATA_DIR FILE_PATH_TO_BACKUP_GOES_HERE
+ENV DB_USER=DATABASE_USERNAME_GOES_HERE
+ENV DB_PASS=DATABASE_PASSWORD_GOES_HERE
 
 # Copy the setup script into the container and make it executable
 COPY ./setup-mongo.sh /usr/src/app/
